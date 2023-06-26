@@ -1,9 +1,9 @@
-import exppress from 'express'
-import { createReviewCtrl } from '../controllers/reviewsCtrl.js'
-import { isLoggedIn } from '../middlewares/isLoggedIn.js'
+import exppress from "express";
+import { createReviewCtrl } from "../controllers/reviewsCtrl.js";
+import { isLoggedIn } from "../middlewares/isLoggedIn.js";
 
-const reviewRouter = exppress.Router()
+const reviewRouter = exppress.Router();
 
-reviewRouter.post('/:productID', isLoggedIn, createReviewCtrl)
+reviewRouter.post("/:productID", isLoggedIn, createReviewCtrl);
 
-export default reviewRouter
+export default reviewRouter;

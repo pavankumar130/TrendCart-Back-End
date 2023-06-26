@@ -1,6 +1,6 @@
 //Brand schema
-import mongoose from 'mongoose'
-const Schema = mongoose.Schema
+import mongoose from "mongoose";
+const Schema = mongoose.Schema;
 
 const BrandSchema = new Schema(
   {
@@ -10,19 +10,19 @@ const BrandSchema = new Schema(
     },
     user: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'User',
+      ref: "User",
       required: true,
     },
     products: [
       {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Product',
+        ref: "Product",
       },
     ],
   },
   { timestamps: true }
-)
+);
 
-const Brand = mongoose.model('Brand', BrandSchema)
+const Brand = mongoose.model("Brand", BrandSchema);
 
-export default Brand
+export default Brand;

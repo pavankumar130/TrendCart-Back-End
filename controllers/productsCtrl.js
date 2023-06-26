@@ -1,58 +1,53 @@
-import Product from '../model/Product.js'
 import asyncHandler from 'express-async-handler'
 import Brand from '../model/Brand.js'
 import Category from '../model/Category.js'
+import Product from '../model/Product.js'
 
-// @desc     Create new product
-// @route    POST /api/v1/products
-// @access   Private/Admin
-
+// @desc    Create new product
+// @route   POST /api/v1/products
+// @access  Private/Admin
 export const createProductCtrl = asyncHandler(async (req, res) => {
-  const { name, description, brand, category, sizes, colors, price, totalQty } =
+  console.log(req.files)
+  const { name, description, category, sizes, colors, price, totalQty, brand } =
     req.body
   const convertedImgs = req.files.map((file) => file?.path)
-  console.log(convertedImgs)
-  // product exists
-  const productsExists = await Product.findOne({ name })
-  if (productsExists) {
+  //Product exists
+  const productExists = await Product.findOne({ name })
+  if (productExists) {
     throw new Error('Product Already Exists')
   }
-  // find the categorry
+  //find the brand
+  const brandFound = await Brand.findOne({
+    name: brand,
+  })
+  if (!brandFound) {
+    throw new Error(
+      'Brand not found, please create brand first or check brand name'
+    )
+  }
+  //find the category
   const categoryFound = await Category.findOne({
-    name: category?.toLowerCase(),
+    name: category,
   })
   if (!categoryFound) {
     throw new Error(
       'Category not found, please create category first or check category name'
     )
   }
-  //find the brand
-  const brandFound = await Brand.findOne({
-    name: brand?.toLowerCase(),
-  })
-
-  if (!brandFound) {
-    throw new Error(
-      'Brand not found, please create brand first or check brand name'
-    )
-  }
-  // create the product
+  //create the product
   const product = await Product.create({
     name,
     description,
-    brand,
     category,
     sizes,
     colors,
     user: req.userAuthId,
     price,
     totalQty,
+    brand,
     images: convertedImgs,
   })
-
-  // push the product into category
-  // send response
-
+  //push the product into category
   categoryFound.products.push(product._id)
   //resave
   await categoryFound.save()
@@ -73,14 +68,17 @@ export const createProductCtrl = asyncHandler(async (req, res) => {
 // @access  Public
 
 export const getProductsCtrl = asyncHandler(async (req, res) => {
+  console.log(req.query)
   //query
   let productQuery = Product.find()
+
   //search by name
   if (req.query.name) {
     productQuery = productQuery.find({
       name: { $regex: req.query.name, $options: 'i' },
     })
   }
+
   //filter by brand
   if (req.query.brand) {
     productQuery = productQuery.find({
@@ -117,7 +115,6 @@ export const getProductsCtrl = asyncHandler(async (req, res) => {
       price: { $gte: priceRange[0], $lte: priceRange[1] },
     })
   }
-
   //pagination
   //page
   const page = parseInt(req.query.page) ? parseInt(req.query.page) : 1
@@ -164,15 +161,13 @@ export const getProductsCtrl = asyncHandler(async (req, res) => {
 // @access  Public
 
 export const getProductCtrl = asyncHandler(async (req, res) => {
-  const product = await Product.findById(req.params.id).populate('reviews')
-
-  // .populate({
-  //   path: 'reviews',
-  //   populate: {
-  //     path: 'user',
-  //     select: 'fullname',
-  //   },
-  // })
+  const product = await Product.findById(req.params.id).populate({
+    path: 'reviews',
+    populate: {
+      path: 'user',
+      select: 'fullname',
+    },
+  })
   if (!product) {
     throw new Error('Prouduct not found')
   }
@@ -217,7 +212,7 @@ export const updateProductCtrl = asyncHandler(async (req, res) => {
     },
     {
       new: true,
-      // runValidators: true,
+      runValidators: true,
     }
   )
   res.json({

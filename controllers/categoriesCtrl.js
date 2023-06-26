@@ -1,11 +1,12 @@
 import asyncHandler from 'express-async-handler'
 import Category from '../model/Category.js'
-
 // @desc    Create new category
 // @route   POST /api/v1/categories
 // @access  Private/Admin
 
-export const createCategoryCtrl = asyncHandler(async (req, res) => {
+export const createCategoryCtrl = async (req, res) => {
+  console.log(req.file)
+  // Your existing code here
   const { name } = req.body
   //category exists
   const categoryFound = await Category.findOne({ name })
@@ -15,17 +16,15 @@ export const createCategoryCtrl = asyncHandler(async (req, res) => {
   //create
   const category = await Category.create({
     name: name?.toLowerCase(),
-
     user: req.userAuthId,
-    // image: req?.file?.path,
+    image: req?.file?.path,
   })
-
   res.json({
     status: 'success',
     message: 'Category created successfully',
     category,
   })
-})
+}
 
 // @desc    Get all categories
 // @route   GET /api/categories

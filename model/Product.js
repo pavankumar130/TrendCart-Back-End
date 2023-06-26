@@ -40,9 +40,7 @@ const ProductSchema = new Schema(
     images: [
       {
         type: String,
-        // required: true,
-        default:
-          'https://m.media-amazon.com/images/I/41Beodb9weL._SX300_SY300_QL70_FMwebp_.jpg',
+        required: true,
       },
     ],
 
@@ -73,7 +71,6 @@ const ProductSchema = new Schema(
     toJSON: { virtuals: true },
   }
 )
-
 //Virtuals
 //qty left
 ProductSchema.virtual('qtyLeft').get(function () {

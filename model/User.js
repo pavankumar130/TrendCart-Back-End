@@ -1,32 +1,30 @@
-import mongoose from 'mongoose'
+import mongoose from "mongoose";
+const Schema = mongoose.Schema;
 
-const Schema = mongoose.Schema
-
-const UserSchema = new Schema(
+const UserShema = new Schema(
   {
     fullname: {
       type: String,
-      require: true,
+      required: true,
     },
     email: {
       type: String,
-      require: true,
+      required: true,
     },
     password: {
       type: String,
-      require: true,
+      required: true,
     },
     orders: [
       {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Order',
+        ref: "Order",
       },
     ],
-
-    wishList: [
+    wishLists: [
       {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'wishList',
+        ref: "WishList",
       },
     ],
     isAdmin: {
@@ -67,9 +65,9 @@ const UserSchema = new Schema(
   {
     timestamps: true,
   }
-)
+);
 
-// compile the schema to model
-const User = mongoose.model('User', UserSchema)
+//compile the schema to model
+const User = mongoose.model("User", UserShema);
 
-export default User
+export default User;
