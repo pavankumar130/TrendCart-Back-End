@@ -28,7 +28,7 @@ export const createOrderCtrl = asyncHandler(async (req, res) => {
   }
 
   // get discount
-  const discount = couponFound?.discount / 100
+  // const discount = couponFound?.discount / 100
 
   //Get the payload(customer, orderItems, shipppingAddress, totalPrice);
   const { orderItems, shippingAddress, totalPrice } = req.body
@@ -48,7 +48,8 @@ export const createOrderCtrl = asyncHandler(async (req, res) => {
     user: user?._id,
     orderItems,
     shippingAddress,
-    totalPrice: couponFound ? totalPrice - totalPrice * discount : totalPrice,
+    // totalPrice: couponFound ? totalPrice - totalPrice * discount :
+    totalPrice,
   })
 
   //Update the product qty

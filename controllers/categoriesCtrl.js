@@ -5,7 +5,6 @@ import Category from '../model/Category.js'
 // @access  Private/Admin
 
 export const createCategoryCtrl = async (req, res) => {
-  console.log(req.file)
   // Your existing code here
   const { name } = req.body
   //category exists
