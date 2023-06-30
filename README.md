@@ -51,3 +51,29 @@ https://cloudinary.com/
 https://www.npmjs.com/package/multer
 https://www.npmjs.com/package/cloudinary
 https://www.npmjs.com/package/multer-storage-cloudinary
+
+### Home Page
+![home1](https://github.com/pavankumar130/TrendCart/assets/122618703/9eb0f4bc-2a9f-4869-b771-2c3472a9cc9a)
+
+![home2](https://github.com/pavankumar130/TrendCart/assets/122618703/6443ae05-003e-4f03-b767-9784b12c2f76)
+
+![home3](https://github.com/pavankumar130/TrendCart/assets/122618703/4e4149e0-6db1-4cd3-9103-6d6a71349ebe)
+
+![home4](https://github.com/pavankumar130/TrendCart/assets/122618703/1f1ea694-c0ec-4e4a-a02e-429a09b14383)
+
+<br><br><br><hr>
+
+### Admin Dashboard
+![admin](https://github.com/pavankumar130/TrendCart/assets/122618703/0b361aa3-cca9-4429-b55c-7600b4cf7665)
+
+![add](https://github.com/pavankumar130/TrendCart/assets/122618703/36ed824e-081e-45b1-9fa6-8b5ef33d8205)
+
+![stock manage](https://github.com/pavankumar130/TrendCart/assets/122618703/35c83803-e8e1-4d87-b053-72316f562467)
+<br><br><br><hr>
+### All Categories
+![categories](https://github.com/pavankumar130/TrendCart/assets/122618703/2dae4bb8-1de5-4540-a813-9ebacc345524)
+<br><br><br><hr>
+### All Products With Filters Options
+![all products 1](https://github.com/pavankumar130/TrendCart/assets/122618703/a7077734-62fa-41f1-8f03-3cd9a0ed0dfe)
+
+![all products 2](https://github.com/pavankumar130/TrendCart/assets/122618703/bd208a91-7b1f-4854-aad5-5b88f7218d72)
