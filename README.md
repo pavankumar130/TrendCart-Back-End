@@ -77,3 +77,20 @@ https://www.npmjs.com/package/multer-storage-cloudinary
 ![all products 1](https://github.com/pavankumar130/TrendCart/assets/122618703/a7077734-62fa-41f1-8f03-3cd9a0ed0dfe)
 
 ![all products 2](https://github.com/pavankumar130/TrendCart/assets/122618703/bd208a91-7b1f-4854-aad5-5b88f7218d72)
+
+<br><br><br><hr>
+### Add To Cart 
+![add to cart](https://github.com/pavankumar130/TrendCart-Back-End/assets/122618703/a581e616-f7a9-459d-a9c4-b776e18ea069)
+<br><br><br><hr>
+### Cart
+![cart](https://github.com/pavankumar130/TrendCart-Back-End/assets/122618703/93ad24ba-781d-402b-941d-03f4091e15f5)
+<br><br><br><hr>
+### Order 
+![order page](https://github.com/pavankumar130/TrendCart-Back-End/assets/122618703/e6fa7982-c356-4b7f-bb0c-ff820381831d)
+<br><br><br><hr>
+### Payment 
+![stripe payment](https://github.com/pavankumar130/TrendCart-Back-End/assets/122618703/0bba7b9c-c707-486f-bf89-307af9315490)
+<br><br><br><hr>
+### Order Success 
+![order success](https://github.com/pavankumar130/TrendCart-Back-End/assets/122618703/fa3dc3bb-cd41-45f5-aeb6-035c1972a147)
+<br><br><br><hr>
