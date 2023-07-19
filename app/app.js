@@ -39,7 +39,6 @@ app.post(
 
     try {
       event = stripe.webhooks.constructEvent(request.body, sig, endpointSecret)
-      console.log('event')
     } catch (err) {
       console.log('err', err.message)
       response.status(400).send(`Webhook Error: ${err.message}`)
@@ -66,7 +65,6 @@ app.post(
           new: true,
         }
       )
-      console.log(order)
     } else {
       return
     }

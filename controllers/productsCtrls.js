@@ -11,7 +11,6 @@ export const createProductCtrl = asyncHandler(async (req, res) => {
   const { name, description, brand, category, sizes, colors, price, totalQty } =
     req.body
   const convertedImgs = req.files.map((file) => file?.path)
-  console.log(convertedImgs)
   // product exists
   const productsExists = await Product.findOne({ name })
   if (productsExists) {
